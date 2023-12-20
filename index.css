@@ -599,18 +599,23 @@ body {
     grid-template-areas: 
     "title"
     "image"
-    "numbers"
+    "tabs"
     "content";
 }
 .grid-container--tec > .numbered-title {
     grid-area: title;
   }
   .grid-container--tec > .number {
-    grid-area: numbers;
+    grid-area: tabs;
   }
 .grid-container--tec> picture {
     grid-area: image;
     width: 100%;
+  }
+  .grid-container--tec> picture >img{
+    object-fit: cover;
+  max-height: 400px;
+  width: 100%;
   }
 .grid-container--tec > .tec-info {
     grid-area: content;
@@ -693,25 +698,31 @@ body {
         max-width: 90%;
     }
     .grid-container--tec{
-      grid-template-areas:
+        grid-template-columns:
+      minmax(1rem, 1fr) minmax(0, 5rem) minmax(0, 37rem) minmax(0, 23rem)
+      minmax(1rem, 1fr);
+        grid-template-areas: 
         ". title title title ."
-        "numbers content image image";
+        ". tabs content image image";
       justify-items: start;
     }
     .grid-container--tec > .numbered-title {
         justify-self: start;
+        margin-bottom: 3rem;
       }
     
       .grid-container--tec > .number {
         flex-direction: column;
+        padding-bottom: 0;
       }
     
       .grid-container--tec > picture {
+        width: 100%;
         justify-self: end;
       }
     
       .grid-container--tec > picture > img {
-        max-height: 600px;
+       width: 100%;
       }
     
 
@@ -723,7 +734,6 @@ body {
   .number > * {
     cursor: pointer;
     place-items: center;
-    margin-bottom: 2em;
     padding: 0.5em 1em;
     border-radius: 50%;
     text-decoration: none;
