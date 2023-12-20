@@ -492,6 +492,22 @@ body {
         background-image: url(./assets/crew/background-crew-desktop.jpg);
     }
 } 
+/* technology */
+.Technology{
+    background-image: url(./assets/technology/background-technology-mobile.jpg);
+}
+@media (min-width: 35rem) {
+    .Technology {
+        background-position: center center;
+        background-image: url(./assets/technology/background-technology-tablet.jpg);
+    }
+}
+
+@media (min-width: 45rem) {
+    .Technology {
+        background-image: url(./assets/technology/background-technology-desktop.jpg);
+    }
+}
 
 /* ----------------------------- */
 /* Layout                        */
@@ -578,6 +594,27 @@ body {
 .crew-details h2 {
     color: hsl( var(--clr-white) / .5);
 }
+.grid-container--tec{
+    --flow-space: 1rem;
+    grid-template-areas: 
+    "title"
+    "image"
+    "numbers"
+    "content";
+}
+.grid-container--tec > .numbered-title {
+    grid-area: title;
+  }
+  .grid-container--tec > .number {
+    grid-area: numbers;
+  }
+.grid-container--tec> picture {
+    grid-area: image;
+    width: 100%;
+  }
+.grid-container--tec > .tec-info {
+    grid-area: content;
+  }
 
 @media (min-width: 35em) {
     .numbered-title {
@@ -598,6 +635,7 @@ body {
             'tabs'
             'image';
     }
+    
     
     
 }
@@ -654,5 +692,52 @@ body {
         align-self: end;
         max-width: 90%;
     }
+    .grid-container--tec{
+      grid-template-areas:
+        ". title title title ."
+        "numbers content image image";
+      justify-items: start;
+    }
+    .grid-container--tec > .numbered-title {
+        justify-self: start;
+      }
+    
+      .grid-container--tec > .number {
+        flex-direction: column;
+      }
+    
+      .grid-container--tec > picture {
+        justify-self: end;
+      }
+    
+      .grid-container--tec > picture > img {
+        max-height: 600px;
+      }
+    
 
 }
+.number {
+    display:flex;
+    gap: 1rem;
+  }
+  .number > * {
+    cursor: pointer;
+    place-items: center;
+    margin-bottom: 2em;
+    padding: 0.5em 1em;
+    border-radius: 50%;
+    text-decoration: none;
+    background-color: hsl(var(--clr-white) / 0.25);
+    color: hsl(var(--clr-white));
+    border: 0;
+    
+  }
+  .number > *:hover,
+  .number > *:hover {
+    background-color: hsl(var(--clr-white) / 0.5);
+  }
+  .number > [aria-selected="true"] {
+    background-color: hsl(var(--clr-white) / 1);
+    color: hsl(var(--clr-dark));
+  }
+ 
